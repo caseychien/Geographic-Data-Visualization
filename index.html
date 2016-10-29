@@ -3,6 +3,8 @@
   <head>
     <title>WebGL Globe</title>
     <meta charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Dosis:400,300' rel='stylesheet' type='text/css'>
+     <link href = "styles/style.css" rel = "stylesheet">
     <style type="text/css">
       html {
         height: 100%;
@@ -31,11 +33,11 @@
       }
 
       #currentInfo {
-        width: 270px;
+        width: 320px;
+        height: 70px;
         position: absolute;
-        left: 20px;
+        left: 15px;
         top: 63px;
-
         background-color: rgba(0,0,0,0.2);
 
         border-top: 1px solid rgba(255,255,255,0.4);
@@ -56,32 +58,52 @@
       }
 
       #title {
+        font-family:"dosis";
+        font-size:36px;
         position: absolute;
-        top: 20px;
-        width: 270px;
-        left: 20px;
+        top: 5px;
+        width: 370px;
+        left: 0px;
         background-color: rgba(0,0,0,0.2);
         border-radius: 3px;
-        font: 20px Georgia;
         padding: 10px;
+        color:#D6874F; /*top*/
+        text-align:left;
+        text-shadow: 2px 2px #DB3B43;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        line-height: 1;
       }
 
       .year {
-        font: 16px Georgia;
+        font: 16px dosis;
         line-height: 26px;
         height: 30px;
+        margin-right:10px;
+        margin-left:40px;
         text-align: center;
-        float: left;
-        width: 90px;
+        float:middle;
+        padding:5px;
+        width: 125px;
         color: rgba(255, 255, 255, 0.4);
-
+        text-transform:lowercase;
         cursor: pointer;
-        -webkit-transition: all 0.1s ease-out;
+        -webkit-transition: all .5s linear;
+        -moz-transition: all .4s linear;
+        -o-transition: all .5s linear;
+        -ms-transition: all .4s linear;
+        transition: all .5s linear;
       }
 
       .year:hover, .year.active {
         font-size: 23px;
+        text-transform:uppercase;
         color: #fff;
+        -webkit-transition: all .5s linear;
+        -moz-transition: all .4s linear;
+        -o-transition: all .5s linear;
+        -ms-transition: all .4s linear;
+        transition: all .5s linear;
       }
 
       #ce span {
@@ -98,6 +120,9 @@
         background: url(ce.png);
       }
 
+      ::selection{
+        background-color:#adabab;
+      };
 
     </style>
   </head>
@@ -106,23 +131,21 @@
   <div id="container"></div>
 
   <div id="info">
-    <strong><a href="http://www.chromeexperiments.com/globe">WebGL Globe</a></strong> <span class="bull">&bull;</span> Created by the Google Data Arts Team <span class="bull">&bull;</span> Data acquired from <a href="http://sedac.ciesin.columbia.edu/gpw/">SEDAC</a>
+    <strong><a href="http://www.chromeexperiments.com/globe">WebGL Globe</a></strong> <span class="bull">&bull;</span> Created by <a href="http://caseychien.github.io">CASEY CHIEN</a> <span class="bull">&bull;</span> Data acquired from <a href="http://dx.doi.org/10.7289/V5JW8BSH">NOAA</a>
   </div>
 
   <div id="currentInfo">
-    <span id="year1990" class="year">1990</span>
-    <span id="year1995" class="year">1995</span>
-    <span id="year2000" class="year">2000</span>
+    <span id="year1990" class="year">Explosivity</span>
+    <span id="year1995" class="year">Elevation</span>
   </div>
 
   <div id="title">
-    World Population
+    volcanic eruptions
   </div>
 
   <a id="ce" href="http://www.chromeexperiments.com/globe">
     <span>This is a Chrome Experiment</span>
   </a>
-
   <script type="text/javascript" src="third-party/Detector.js"></script>
   <script type="text/javascript" src="third-party/three.min.js"></script>
   <script type="text/javascript" src="third-party/Tween.js"></script>
@@ -133,7 +156,7 @@
       Detector.addGetWebGLMessage();
     } else {
 
-      var years = ['1990','1995','2000'];
+      var years = ["1990","1995"];
       var container = document.getElementById('container');
       var globe = new DAT.Globe(container);
 
@@ -165,7 +188,7 @@
       
       
       xhr = new XMLHttpRequest();
-      xhr.open('GET', 'population909500.json', true);
+      xhr.open('GET', 'data.json', true);
       xhr.onreadystatechange = function(e) {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
@@ -185,7 +208,6 @@
     }
 
   </script>
-
   </body>
 
 </html>
