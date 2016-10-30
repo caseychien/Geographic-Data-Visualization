@@ -1,2 +1,2 @@
 # Geographic-Data-Visualization
-Uses WebGL Globe
+A visualization of significant volcanic eruptions
