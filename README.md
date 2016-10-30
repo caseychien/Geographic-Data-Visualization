@@ -6,6 +6,6 @@ Just clone this repository and serve the files with
 
 ```python -m SimpleHTTPServer 8000```
 
-And browse to [http://0.0.0.0:8000/](http://0.0.0.0:8000/)
+And browse to [http://0.0.0.0:8000/](http://0.0.0.0:8000/) to see it locally
 
 Or view it [here](http://volcaniceruptions.herokuapp.com/)!
